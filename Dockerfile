@@ -6,6 +6,17 @@ LABEL authors = "Michael C Ryan - spacetime.engineer@gmail.com, michael.c.ryan@n
 WORKDIR /app
 
 
+
+ENV external_deployment_path $external_deployment_path
+ENV external_output_path $external_output_path
+ENV model $model
+ENV serial_number $serial_number
+ENV port $port
+
+
+VOLUME $external_deployment_path
+VOLUME $external_output_path
+
 # Install any needed packages specified in requirements.txt
 RUN apt-get update && apt-get install -y \
     python3-pip \
